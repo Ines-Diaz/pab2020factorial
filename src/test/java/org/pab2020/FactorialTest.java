@@ -18,7 +18,7 @@ public class FactorialTest {
 
     private Factorial factorial;
 
-    @BeforeEach //Se ejecuta antes de cada Test (como es código en común para cada Test así no hace falta escribirlo en cada prueba)
+    @BeforeEach
     public void setup(){
         factorial = new Factorial();
     }
