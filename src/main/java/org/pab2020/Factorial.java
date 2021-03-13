@@ -1,21 +1,20 @@
 package org.pab2020;
 
+import java.math.BigInteger;
+
 /**
  *
  *
  */
 public class Factorial {
-    public int compute(int value) {
-        int result;
-        if (value < 0) {
+    public BigInteger compute(BigInteger value) {
+        BigInteger result;
+        if (value.compareTo(BigInteger.ZERO) < 0) {
             throw new RuntimeException("Error.NegativeNumber:" + value);
-        }else if ((value == 0) || (value == 1)) {
-            result = 1;
+        }else if ((value.compareTo(BigInteger.ZERO) == 0) || (value.compareTo(BigInteger.ONE) == 0)) {
+            result = BigInteger.ONE;
         } else {
-            result = 1;
-            for (int i = 1; i <= value; i++) {
-                result *= i;
-            }
+            result = value.multiply(compute(value.subtract(BigInteger.ONE)));
         }
         return result;
     }
